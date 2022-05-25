@@ -1,0 +1,31 @@
+# -*- org-src-preserve-indentation: t; org-edit-src-content: 0; -*-
+#+TITLE: Example
+#+AUTHOR:
+#+DATE:
+#+PROPERTY: header-args:python :session hello
+#+PROPERTY: header-args:python+ :async yes
+
+
+#+BEGIN_SRC R :results file graphics :file foo.png :exports both
+  x = seq(-2, 2, length.out = 100)
+  plot(x, exp(x), "l")
+#+END_SRC
+
+#+RESULTS:
+[[file:foo.png]]
+
+
+#+BEGIN_SRC python :results output file :file blah.png :exports both
+import sys
+import numpy as np
+import matplotlib.pyplot as plt
+
+import matplotlib as mpl
+
+fig = plt.figure(figsize=(4, 2))
+x = np.linspace(-2, 2, 100)
+plt.plot(x, np.exp(x))
+#+END_SRC
+
+#+RESULTS:
+[[file:blah.png]]
